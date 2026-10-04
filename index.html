@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WeakC4 — graphe de la solution faible</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./enhancements.css">
+  <link rel="stylesheet" href="./modes.css">
+</head>
+<body>
+  <header>
+    <div><span class="eyebrow">PUISSANCE 4 · 7×6</span><h1>WeakC4 Explorer</h1></div>
+    <div class="legend"><span class="red">Rouge</span><span class="yellow">Jaune</span><span class="steady">Steady State</span></div>
+  </header>
+  <main>
+    <section class="graph-shell">
+      <canvas id="graph" aria-label="Graphe tridimensionnel interactif"></canvas>
+      <div id="loading">Chargement du graphe…</div>
+      <div class="graph-help">Glisser pour tourner · Molette pour zoomer · Cliquer pour inspecter</div>
+      <button id="center" class="ghost">Recentrer</button>
+    </section>
+    <aside>
+      <section class="panel play-panel">
+        <div class="panel-title"><span>Jouer la ligne</span><button id="reset">Nouvelle partie</button></div>
+        <div class="mode-switch" role="group" aria-label="Mode de jeu">
+          <button id="mode-weakc4" class="mode-button active" aria-pressed="true">Contre WeakC4</button>
+          <button id="mode-two-player" class="mode-button" aria-pressed="false">Deux joueurs</button>
+        </div>
+        <canvas id="board" aria-label="Plateau de Puissance 4"></canvas>
+        <p id="status" class="status"></p>
+        <div class="outcome-header"><span>Issues des continuations</span><small id="analysis-perspective">pour Jaune au trait</small></div>
+        <div class="outcome-counts" aria-label="Nombre de chemins par issue">
+          <div class="red-outcome"><span id="red-wins">0</span><small>victoires Rouge</small></div>
+          <div class="yellow-outcome"><span id="yellow-wins">0</span><small>victoires Jaune</small></div>
+          <div class="draw-outcome"><span id="draws">0</span><small>matchs nuls</small></div>
+        </div>
+        <div id="column-analysis" class="column-analysis" aria-label="Issue par colonne"></div>
+        <p id="analysis-basis" class="analysis-basis"></p>
+        <p id="play-hint" class="hint">Vous jouez Jaune. Rouge répond automatiquement selon WeakC4.</p>
+      </section>
+      <section class="panel">
+        <div class="panel-title"><span>Position sélectionnée</span></div>
+        <dl id="details"></dl>
+        <button id="continue-from-node" class="continue-button" disabled>Continuer la partie depuis ce nœud</button>
+      </section>
+      <section class="panel symbols-panel">
+        <div class="panel-title"><span>Légende des cases</span></div>
+        <div class="symbol-list">
+          <b>!</b><span>Urgent — doit être l’unique case jouable de ce niveau.</span>
+          <b>@</b><span>Miai — joué seulement si un seul <code>@</code> est disponible.</span>
+          <b>|</b><span>Claimodd — utilisable sur une rangée impaire (1, 3, 5).</span>
+          <b>·</b><span>Claimeven — l’espace, affiché par ·, est utilisable sur une rangée paire.</span>
+          <b>+</b><span>Priorité 6, après les claims.</span>
+          <b>=</b><span>Priorité 7.</span>
+          <b>−</b><span>Priorité 8, dernier recours.</span>
+          <b class="stone red-stone">1</b><span>Pion Rouge.</span>
+          <b class="stone yellow-stone">2</b><span>Pion Jaune.</span>
+        </div>
+        <p class="hint">Avant les symboles, Rouge cherche toujours une victoire immédiate puis bloque toute victoire immédiate de Jaune. Les annotations flottantes sont ignorées.</p>
+      </section>
+    </aside>
+  </main>
+  <script type="module" src="./src/viewer/app.js"></script>
+</body>
+</html>

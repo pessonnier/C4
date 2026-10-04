@@ -1,0 +1,10 @@
+.mode-switch { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin: -2px 0 10px; padding: 3px; border: 1px solid #20344a; border-radius: 9px; background: #07111d; }
+.mode-button { padding: 7px 5px; border-color: transparent; background: transparent; color: #7089a1; }
+.mode-button.active { border-color: #3b6d9f; background: #163657; color: #ecf6ff; box-shadow: inset 0 0 0 1px #ffffff08; }
+.column-result { padding-bottom: 4px; }
+.column-paths { width: calc(100% - 4px); display: grid; gap: 2px; margin-top: 3px; padding-top: 4px; border-top: 1px solid #ffffff12; }
+.column-paths em { min-width: 0; display: flex; align-items: center; justify-content: space-between; gap: 1px; overflow-wrap: anywhere; color: #a8b9ca; font: normal 700 6.5px ui-monospace, monospace; line-height: 1.15; }
+.column-paths i { flex: 0 0 auto; display: inline-grid; place-items: center; width: 10px; height: 10px; border-radius: 50%; color: #07111d; font: normal 900 6px ui-monospace, monospace; }
+.path-red i { background: #ff5f68; }
+.path-yellow i { background: #ffd447; }
+.column-result.illegal .column-paths, .column-result.outside .column-paths { opacity: .55; }

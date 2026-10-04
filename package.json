@@ -1,0 +1,16 @@
+{
+  "name": "weakc4-dag-viewer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Reconstruction, validation and interactive 3D viewing of the WeakC4 Connect Four solution",
+  "license": "GPL-3.0-or-later",
+  "scripts": {
+    "test": "node --test",
+    "build-graph": "node scripts/build-graph.js",
+    "validate-solution": "node scripts/validate-solution.js",
+    "graph-stats": "node scripts/graph-stats.js",
+    "build-layout": "node scripts/build-layout.js",
+    "serve": "python3 -m http.server 8000"
+  }
+}
